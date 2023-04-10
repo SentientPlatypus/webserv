@@ -3,6 +3,8 @@ use std::{net::{TcpListener, TcpStream}, io::{BufReader, BufRead, Write}, fs, fm
 use webserv::ThreadPool;
 
 fn main() {
+    println!("We out");
+
     let listener = match TcpListener::bind("127.0.0.1:7878") {
         Ok(t) => t,
         Err(_) => panic!("failed to bind.")
@@ -17,6 +19,8 @@ fn main() {
         pool.execute(|| {handle_connection(stream)});
         // println!("Connection established!");
     }
+
+    println!("Completed.")
 }
 
 
